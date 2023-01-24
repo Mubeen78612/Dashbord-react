@@ -1,7 +1,6 @@
-import React from 'react'
-import "./assets/css/main.css"
+import React from "react";
+import "./assets/css/main.css";
+import { Routers } from "./routes/routers";
 export const App = () => {
-  return (
-    <div>App is Running</div>
-  )
-}
+  return <Routers/>;
+};

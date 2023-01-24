@@ -1,7 +1,17 @@
-import React from 'react'
+import React from "react";
+import { Outlet } from "react-router-dom";
+// components
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export const DashboardLayout = () => {
   return (
-    <div>DashboardLayout</div>
-  )
-}
+    <>
+      <Header />
+      <div className="container">
+        <Outlet />
+      </div>
+      <Footer />
+    </>
+  );
+};
