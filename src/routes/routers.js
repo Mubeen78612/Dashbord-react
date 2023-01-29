@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 // layout
 import { DashboardLayout } from "../layouts/DashboardLayout";
 //pages
@@ -22,7 +22,7 @@ export const Routers = () => {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<Navigate to="/dashboard" replace={true} />} />
     </Routes>
   );
 };

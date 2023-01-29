@@ -1,15 +1,23 @@
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
-export const AuthGuard = () => {
+export const AuthGuard = ({children}) => {
   const [isAuth, setAuth] = useState(false);
+  const pathname=useLocation();
+  const [requestedLocation, setRequestedLocation]=useState(null);
+
+  if(!isAuth){
+    if(pathname!==requestedLocation){
+      setRequestedLocation(pathname);
+    }
+  }
+  if(requestedLocation && pathname!== requestedLocation){
+    setRequestedLocation(null)
+    return <Navigate to={requestedLocation}/>
+  }
   return (
     <>
-      {isAuth ? (
-        <Navigate to="/dashboard" replace={true} />
-      ) : (
-        <Navigate to="/login" replace={true} />
-      )}
+     {children}
     </>
   );
 };

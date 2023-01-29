@@ -15,8 +15,7 @@ export const Register = () => {
           <input
             className="outline-none border py-2 rounded"
             type="string"
-            placeholder=""
-          />
+            placeholder=""/>
           <label> Email</label>
           <input
             className="outline-none border py-2 rounded"
